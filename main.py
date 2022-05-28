@@ -14,8 +14,18 @@ from sklearn.metrics import accuracy_score
 
 import preprocessing as pp
 
-data = pp.load_csv('경기종합데이터')
-print(data)
+employ_data = pp.load_csv('고용수준실적SBHI')
+business_data = pp.load_csv('경기전반실적SBHI')
+domestic_data = pp.load_csv('내수판매실적SBHI')
+export_data = pp.load_csv('수출실적SBHI')
+print(export_data)
+
+general_data = pp.join_data(business_data,employ_data,"고용수준실적SBHI")
+general_data = pp.join_data(general_data,domestic_data,"내수판매SBHI")
+general_data = pp.join_data(general_data,export_data,"수출실적SBHI")
+print(general_data)
+
+# general_data.to_csv("data/최종데이터.csv")
 
 x_train = []
 x_valid = []
