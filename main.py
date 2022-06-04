@@ -11,13 +11,14 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-
 from datetime import datetime
 import preprocessing as pp
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import font_manager, rc
 import seaborn as sns
+from pycaret.classification import *
+
 
 font_path = "C:/Windows/Fonts/H2GTRM.TTF"
 font = font_manager.FontProperties(fname=font_path).get_name()
