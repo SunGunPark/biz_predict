@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import font_manager, rc
 import seaborn as sns
-from pycaret.classification import *
+
 
 
 font_path = "C:/Windows/Fonts/H2GTRM.TTF"
@@ -43,7 +43,7 @@ general_data = pp.join_data(general_data,sales_data,"영업이익실적SBHI")
 general_data = pp.create_nan_data(general_data)
 general_data = pp.delete_nan_data(general_data)
 general_data = pp.change_datetime(general_data)
-#print(general_data.corr())
+print(general_data.corr())
 
 #print(general_data.info)
 # general_data.plot(x='시점')
@@ -67,7 +67,7 @@ all_data['계절'] = np.select([(all_data['월'] <= 2),(all_data['월'] <= 5),
                             (all_data['월'] == 12)],
                            ['겨울','봄','여름','가을','겨울'], default=np.nan)
 
-print(all_data)
+#print(all_data)
 
 pp.save_df_to_csv(all_data,"최종데이터")
 
